@@ -10,25 +10,25 @@ func CamelCase(in string) string {
 
 	out := make([]rune, 0)
 
-	nextCapitilized := false
-	experiencedFist := false
+	nextCapitalized := false
+	experiencedFirst := false
 	for _, c := range in {
-		if experiencedFist == false {
+		if experiencedFirst == false {
 			if c != '_' && c != '-' && c != ' ' {
 				out = append(out, unicode.ToLower(c))
-				experiencedFist = true
+				experiencedFirst = true
 			}
 			continue
 		}
 
 		if c == '_' || c == '-' || c == ' ' {
-			nextCapitilized = true
+			nextCapitalized = true
 			continue
 		}
 
-		if nextCapitilized {
+		if nextCapitalized {
 			out = append(out, unicode.ToUpper(c))
-			nextCapitilized = false
+			nextCapitalized = false
 		} else {
 			out = append(out, c)
 		}

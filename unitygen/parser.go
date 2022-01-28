@@ -94,7 +94,7 @@ func (p *Parser) interpretObjectDefinitionProperty(path []string, objectName, pr
 
 	propType, ok := obj.Path("type").Data().(string)
 	if !ok {
-		return nil, InvalidSpecError{Path: append(path, propertyName), Reason: "Property type not found on definition"}
+		propType = "object"
 	}
 
 	switch propType {

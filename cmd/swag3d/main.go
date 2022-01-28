@@ -141,9 +141,7 @@ func filterSpecForUnusedDefinitions(spec unitygen.Spec) unitygen.Spec {
 
 	filteredDefinitions := make([]model.Definition, 0)
 	for _, def := range spec.Definitions {
-		if thingsToKeep[def.ToVariableType()] {
-			filteredDefinitions = append(filteredDefinitions, def)
-		}
+		filteredDefinitions = append(filteredDefinitions, def)
 	}
 
 	spec.Definitions = filteredDefinitions
@@ -184,7 +182,7 @@ func openNamespace(out io.Writer, namespace string) {
 	if namespace == "" {
 		return
 	}
-	fmt.Fprintf(out, "namespace %s {\n\n", convention.TitleCase(namespace))
+	fmt.Fprintf(out, "namespace %s {\n\n", namespace)
 }
 
 func closeNamespace(out io.Writer, namespace string) {

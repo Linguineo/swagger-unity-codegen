@@ -10,16 +10,16 @@ func TitleCase(in string) string {
 
 	out := make([]rune, 0)
 
-	nextCapitilized := true
+	nextCapitalized := true
 	for _, c := range in {
 		if c == '_' || c == '-' || c == ' ' {
-			nextCapitilized = true
+			nextCapitalized = true
 			continue
 		}
 
-		if nextCapitilized {
+		if nextCapitalized {
 			out = append(out, unicode.ToUpper(c))
-			nextCapitilized = false
+			nextCapitalized = false
 		} else {
 			out = append(out, c)
 		}

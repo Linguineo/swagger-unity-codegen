@@ -90,6 +90,8 @@ func (p Path) respVariableName(k string) string {
 	switch k {
 	case "200":
 		return "success"
+	case "201":
+        return "success"
 
 	case "400":
 		return "badRequest"
@@ -99,6 +101,8 @@ func (p Path) respVariableName(k string) string {
 		return "forbidden"
 	case "404":
 		return "notFound"
+	case "429":
+        return "tooManyRequests"
 
 	case "500":
 		return "internalServerError"
