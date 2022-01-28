@@ -53,7 +53,7 @@ func (sp String) ClassVariables(className string) string {
 		break
 
 	default:
-		fmt.Fprintf(&builder, "\tpublic string %s { get; private set; }\n", propNameToUse)
+		fmt.Fprintf(&builder, "\tpublic string %s { get; set; }\n", propNameToUse)
 		break
 	}
 

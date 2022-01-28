@@ -98,13 +98,6 @@ func (s Spec) ServiceConfig(configName, menuName string, includeScriptableObject
 	builder.WriteString(s.renderInterfaceBody())
 	builder.WriteString("}\n\n")
 
-	builder.WriteString(`public interface IWebRequest {
-
-	UnityWebRequest UnderlyingRequest{ get; }
-
-	IEnumerator Run();
-}`)
-
 	// Editor Config Code
 	if includeScriptableObject {
 		builder.WriteString("\n\n#if UNITY_EDITOR\n[UnityEditor.CustomEditor(typeof(")

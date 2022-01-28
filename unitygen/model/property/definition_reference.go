@@ -48,6 +48,6 @@ func (dr DefinitionReference) ClassVariables(className string) string {
 	builder.WriteString(dr.ToVariableType())
 	builder.WriteString(" ")
 	builder.WriteString(convention.TitleCase(dr.name))
-	builder.WriteString(" { get; private set; }\n")
+	builder.WriteString(" { get; set; }\n")
 	return builder.String()
 }

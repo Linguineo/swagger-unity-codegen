@@ -34,5 +34,5 @@ func (sp Boolean) ClassVariables(className string) string {
         propNameToUse = propNameToUse + "_";
     }
 
-	return fmt.Sprintf("\t[JsonProperty(\"%s\")]\n\tpublic %s %s { get; private set; }\n", sp.Name(), sp.ToVariableType(), propNameToUse)
+	return fmt.Sprintf("\t[JsonProperty(\"%s\")]\n\tpublic %s %s { get; set; }\n", sp.Name(), sp.ToVariableType(), propNameToUse)
 }
