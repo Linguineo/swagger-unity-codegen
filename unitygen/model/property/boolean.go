@@ -28,6 +28,11 @@ func (sp Boolean) EmptyValue() string {
 	return "false"
 }
 
-func (sp Boolean) ClassVariables() string {
-	return fmt.Sprintf("\t[JsonProperty(\"%s\")]\n\tpublic %s %s { get; private set; }\n", sp.Name(), sp.ToVariableType(), convention.TitleCase(sp.Name()))
+func (sp Boolean) ClassVariables(className string) string {
+    propNameToUse := convention.TitleCase(sp.Name())
+    if propNameToUse == className {
+        propNameToUse = propNameToUse + "_";
+    }
+
+	return fmt.Sprintf("\t[JsonProperty(\"%s\")]\n\tpublic %s %s { get; private set; }\n", sp.Name(), sp.ToVariableType(), propNameToUse)
 }

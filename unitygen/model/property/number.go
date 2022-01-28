@@ -47,7 +47,7 @@ func (sp Number) EmptyValue() string {
 	return "0f"
 }
 
-func (sp Number) ClassVariables() string {
+func (sp Number) ClassVariables(className string) string {
 	builder := strings.Builder{}
 	fmt.Fprintf(&builder, "\t[JsonProperty(\"%s\")]\n", sp.Name())
 	fmt.Fprintf(&builder, "\tpublic %s %s { get; private set; }\n", sp.ToVariableType(), convention.TitleCase(sp.Name()))

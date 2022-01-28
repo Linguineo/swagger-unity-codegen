@@ -36,7 +36,7 @@ func (sp Integer) EmptyValue() string {
 	}
 }
 
-func (sp Integer) ClassVariables() string {
+func (sp Integer) ClassVariables(className string) string {
 	builder := strings.Builder{}
 	builder.WriteString("	[JsonProperty(\"")
 	builder.WriteString(sp.Name())

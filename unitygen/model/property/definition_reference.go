@@ -31,7 +31,7 @@ func (dr DefinitionReference) EmptyValue() string {
 	return "null"
 }
 
-func (dr DefinitionReference) ClassVariables() string {
+func (dr DefinitionReference) ClassVariables(className string) string {
 	builder := strings.Builder{}
 	builder.WriteString("\t[JsonProperty(\"")
 	builder.WriteString(dr.name)

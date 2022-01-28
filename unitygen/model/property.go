@@ -13,5 +13,5 @@ type Property interface {
 	EmptyValue() string
 
 	// What gets written to the c# class definition.
-	ClassVariables() string
+	ClassVariables(className string) string
 }

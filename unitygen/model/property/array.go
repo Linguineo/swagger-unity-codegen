@@ -36,7 +36,7 @@ func (sp Array) EmptyValue() string {
 	return "null"
 }
 
-func (sp Array) ClassVariables() string {
+func (sp Array) ClassVariables(className string) string {
 	builder := strings.Builder{}
 	builder.WriteString("\t[JsonProperty(\"")
 	builder.WriteString(sp.name)

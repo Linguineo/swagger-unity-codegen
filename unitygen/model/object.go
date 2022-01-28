@@ -120,13 +120,13 @@ func (od Object) ToCSharp() string {
 	// List out any "any of" properties
 	if od.objectToTakeProperties != nil {
 		for _, prop := range od.objectToTakeProperties.Properties() {
-			classBuilder.WriteString(prop.ClassVariables())
+			classBuilder.WriteString(prop.ClassVariables(od.ToVariableType()))
 			classBuilder.WriteString("\n")
 		}
 	}
 
 	for _, prop := range od.properties {
-		classBuilder.WriteString(prop.ClassVariables())
+		classBuilder.WriteString(prop.ClassVariables(od.ToVariableType()))
 		classBuilder.WriteString("\n")
 	}
 	classBuilder.WriteString("}")

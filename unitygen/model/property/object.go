@@ -40,7 +40,7 @@ func (op Object) EmptyValue() string {
 }
 
 // What gets written to the c# class definition.
-func (op Object) ClassVariables() string {
+func (op Object) ClassVariables(className string) string {
 	builder := strings.Builder{}
 	builder.WriteString("\t")
 	builder.WriteString(op.obj.ToCSharp())
