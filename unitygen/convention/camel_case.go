@@ -34,5 +34,9 @@ func CamelCase(in string) string {
 		}
 	}
 
+	if (in == "event") {
+        out = append(out, '_')
+    }
+
 	return string(out)
 }
