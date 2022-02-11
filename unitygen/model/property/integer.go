@@ -25,7 +25,7 @@ func (sp Integer) Name() string {
 func (sp Integer) ToVariableType() string {
 	switch sp.format {
 	default:
-		return "int"
+		return "int?"
 	}
 }
 

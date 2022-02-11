@@ -25,11 +25,11 @@ func (sp Number) Name() string {
 
 func (sp Number) ToVariableType() string {
 	if sp.format == "" {
-		return "float"
+		return "float?"
 	}
 
 	if sp.format == "int32" {
-		return "int"
+		return "int?"
 	}
 
 	return sp.format

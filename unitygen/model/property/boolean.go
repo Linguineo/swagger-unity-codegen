@@ -21,7 +21,7 @@ func (sp Boolean) Name() string {
 }
 
 func (sp Boolean) ToVariableType() string {
-	return "bool"
+	return "bool?"
 }
 
 func (sp Boolean) EmptyValue() string {
