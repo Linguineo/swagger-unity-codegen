@@ -32,6 +32,10 @@ func (sp Number) ToVariableType() string {
 		return "int?"
 	}
 
+	if sp.format == "int64" {
+        return "long?"
+    }
+
 	return sp.format
 }
 

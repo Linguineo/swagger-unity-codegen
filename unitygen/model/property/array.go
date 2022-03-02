@@ -29,7 +29,7 @@ func (sp Array) Property() model.Property {
 }
 
 func (sp Array) ToVariableType() string {
-	return fmt.Sprintf("%s[]", sp.prop.ToVariableType())
+	return fmt.Sprintf("List<%s>", sp.prop.ToVariableType())
 }
 
 func (sp Array) EmptyValue() string {

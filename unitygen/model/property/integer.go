@@ -23,10 +23,15 @@ func (sp Integer) Name() string {
 }
 
 func (sp Integer) ToVariableType() string {
-	switch sp.format {
-	default:
-		return "int?"
-	}
+	if sp.format == "int32" {
+        return "int?"
+    }
+
+    if sp.format == "int64" {
+        return "long?"
+    }
+
+    return "int?"
 }
 
 func (sp Integer) EmptyValue() string {

@@ -159,6 +159,7 @@ func fileImports(out io.Writer) {
 	fmt.Fprintln(out, "using UnityEngine;")
 	fmt.Fprintln(out, "using UnityEngine.Networking;")
 	fmt.Fprintln(out, "using System.Collections;")
+	fmt.Fprintln(out, "using System.Collections.Generic;")
 	fmt.Fprintln(out, "using System.Text;")
 	fmt.Fprintln(out, "using Newtonsoft.Json;")
 	fmt.Fprintln(out, "using Newtonsoft.Json.Converters;")
