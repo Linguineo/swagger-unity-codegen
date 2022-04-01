@@ -10,6 +10,7 @@ const (
 	PathParameterLocation  ParameterLocation = "path"
 	QueryParameterLocation ParameterLocation = "query"
 	BodyParameterLocation  ParameterLocation = "body"
+	HeaderParameterLocation  ParameterLocation = "header"
 )
 
 // Parameter represents a variable that should exist somewhere inside a HTTP

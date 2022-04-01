@@ -200,6 +200,15 @@ func (p Path) RequestParamClass() string {
 	// Build the unity request object
 	fmt.Fprintf(&builder, "\t\tvar unityWebReq = new UnityWebRequest(finalPath, %s);\n", unity.ToUnityHTTPVerb(p.httpMethod))
 
+	// Add header params
+    for _, param := range p.parameters {
+        if param.location == HeaderParameterLocation {
+            privateVarName := convention.CamelCase(param.name)
+            fmt.Fprintf(&builder, "\t\tif (%s != null) {\n", privateVarName)
+            fmt.Fprintf(&builder, "\t\t\tunityWebReq.SetRequestHeader(\"%s\", %s.ToString());\n\t\t}\n", privateVarName, privateVarName)
+        }
+    }
+
 	// Set the body of the request
 	bodyParam := p.bodyParam()
 	if bodyParam != nil {
