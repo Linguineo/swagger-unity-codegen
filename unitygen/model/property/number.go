@@ -36,7 +36,7 @@ func (sp Number) ToVariableType() string {
         return "long?"
     }
 
-	return sp.format
+	return "double?"
 }
 
 func (sp Number) EmptyValue() string {

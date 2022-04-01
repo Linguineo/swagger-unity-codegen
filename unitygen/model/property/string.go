@@ -49,7 +49,7 @@ func (sp String) ClassVariables(className string) string {
 	switch sp.format {
 	case "date-time":
 		fmt.Fprintf(&builder, "\tpublic string %s;\n\n", convention.CamelCase(sp.Name()))
-		fmt.Fprintf(&builder, "\tpublic System.DateTime %s { get => System.DateTime.Parse(%s); }\n", propNameToUse, convention.CamelCase(sp.Name()))
+		fmt.Fprintf(&builder, "\tpublic System.DateTime? %s { get { if (%s != null) { return System.DateTime.Parse(%s); } else { return null; } } }\n", propNameToUse, convention.CamelCase(sp.Name()), convention.CamelCase(sp.Name()))
 		break
 
 	default:

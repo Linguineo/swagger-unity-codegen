@@ -276,7 +276,11 @@ func (p Path) UnityWebRequest() string {
 
 func (p Path) renderConditionalResponseCast(code string, resp Response) string {
 	if parsed, err := strconv.Atoi(code); err == nil {
-		return fmt.Sprintf("if (req.responseCode == %d) {\n\t\t\t%s\n\t\t}", parsed, resp.Interpret(p.respVariableName(code), "req.downloadHandler"))
+	    if parsed == 200 || parsed == 201 {
+	      return fmt.Sprintf("if (req.responseCode == 200 || req.responseCode == 201) {\n\t\t\t%s\n\t\t}", resp.Interpret(p.respVariableName(code), "req.downloadHandler"))
+	    } else {
+	      return fmt.Sprintf("if (req.responseCode == %d) {\n\t\t\t%s\n\t\t}", parsed, resp.Interpret(p.respVariableName(code), "req.downloadHandler"))
+		}
 	}
 	return resp.Interpret("fallbackResponse", "req.downloadHandler")
 }
