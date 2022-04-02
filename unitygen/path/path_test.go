@@ -525,7 +525,7 @@ public class GetUserRequestParams
 		}
 
 		var unityWebReq = new UnityWebRequest(finalPath, UnityWebRequest.kHttpVerbGET);
-		var unityRawUploadHandler = new UploadHandlerRaw(Encoding.Unicode.GetBytes(JsonConvert.SerializeObject(query)));
+		var unityRawUploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(query)));
 		unityRawUploadHandler.contentType = "application/json";
 		unityWebReq.uploadHandler = unityRawUploadHandler;
 		return unityWebReq;

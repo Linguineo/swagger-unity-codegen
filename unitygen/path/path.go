@@ -212,7 +212,7 @@ func (p Path) RequestParamClass() string {
 	// Set the body of the request
 	bodyParam := p.bodyParam()
 	if bodyParam != nil {
-		fmt.Fprintf(&builder, "\t\tvar unityRawUploadHandler = new UploadHandlerRaw(Encoding.Unicode.GetBytes(JsonConvert.SerializeObject(%s)));\n", convention.CamelCase(bodyParam.name))
+		fmt.Fprintf(&builder, "\t\tvar unityRawUploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(%s)));\n", convention.CamelCase(bodyParam.name))
 		builder.WriteString("\t\tunityRawUploadHandler.contentType = \"application/json\";\n")
 		builder.WriteString("\t\tunityWebReq.uploadHandler = unityRawUploadHandler;\n")
 	}
