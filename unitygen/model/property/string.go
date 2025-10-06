@@ -26,7 +26,7 @@ func (sp String) Name() string {
 func (sp String) ToVariableType() string {
 	switch sp.format {
 	case "date-time":
-		return "System.DateTime"
+		return "System.DateTime?"
 
 	default:
 		return "string"
