@@ -2,7 +2,7 @@ package unitygen
 
 import (
 	"strings"
-
+	"sort"
 	"github.com/recolude/swagger-unity-codegen/unitygen/convention"
 	"github.com/recolude/swagger-unity-codegen/unitygen/path"
 	"github.com/recolude/swagger-unity-codegen/unitygen/security"
@@ -51,6 +51,15 @@ func (s Service) ToCSharp(knownModifiers []security.Auth, serviceConfigName stri
 	builder.WriteString(serviceConfigName)
 	builder.WriteString(" Config) {\n\t\tthis.Config = Config;\n\t}\n\n")
 
+
+	sort.Slice(s.paths, func(i, j int) bool {
+		// This sorts the API calls by their full URL path (e.g., "/users" before "/widgets").
+		if s.paths[i].Route() != s.paths[j].Route() {
+			return s.paths[i].Route() < s.paths[j].Route()
+		}
+		// 2. If Route is the same, sort by HTTP Method (e.g., DELETE < GET < POST).
+		return s.paths[i].Method() < s.paths[j].Method()
+	})
 	for _, p := range s.paths {
 		builder.WriteString(p.SupportingClasses())
 		builder.WriteString("\n")
